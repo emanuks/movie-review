@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="mb-3">
+  <%= link_to "< Back", root_path, class: "py-1 text-center rounded text-blue-500 font-bold hover:opacity-75" %>
+</div>
+<%= render @movie %>
+
+<div class="flex flex-row gap-1 my-3">
+  <%= link_to "Rate this movie", new_review_for_movie_path(@movie.id), class: "px-2 py-1 text-center rounded bg-blue-500 font-bold text-white hover:opacity-75" %>
+  <%= link_to "Edit this movie", edit_movie_path(@movie), class: "px-2 py-1 text-center rounded bg-blue-600 font-bold text-white hover:opacity-75" %>
+  <%= button_to "Delete movie", @movie, method: :delete, class: "px-2 py-1 text-center rounded bg-red-500 font-bold text-white hover:opacity-75" %>
+</div>

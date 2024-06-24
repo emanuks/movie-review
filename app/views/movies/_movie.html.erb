@@ -1,0 +1,19 @@
+<div id="<%= dom_id movie %>">
+  <p class="font-bold text-2xl mb-2">
+    <%= movie.name %>
+  </p>
+  <p class="text-gray-600 mb-2">
+    <%= movie.description %>
+  </p>
+  <% if movie.reviews.present? %>
+    <% movie.ratings.each do |key, value| %>
+        <p class="font-bold"><%= key %></p>
+        <p><%= value %>/5</p>
+    <% end %>
+
+    <p class="font-bold">Overall Rating</p>
+    <p><%= movie.overall_rating %>/5</p>
+  <% else %>
+    <div>Be the first to rate this movie!</div>
+  <% end %>
+</div>

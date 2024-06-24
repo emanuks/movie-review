@@ -1,0 +1,15 @@
+<%= form_for review do |form| %>
+  <%= form.hidden_field :movie_id, value: @movie.id %>
+
+  <% review.category_review_relationships.each do |crr| %>
+    <div class="flex flex-col gap-3 mb-3">
+      <%= form.fields_for :category_review_relationships, crr do |crr_form| %>
+        <%= crr_form.label :rating, crr.category.name %>
+        <%= crr_form.number_field :rating, in: 0..5, value: 5, class: "w-36 rounded h-10 border-gray-200 focus:border-blue-500" %>
+        <%= crr_form.hidden_field :category_id, value: crr.category.id %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form.submit 'Submit', class: "px-2 py-1 text-center rounded bg-blue-500 font-bold text-white hover:opacity-75 mt-5 cursor-pointer" %>
+<% end %>
